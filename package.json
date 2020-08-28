@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/leanargu/botardo#readme",
   "dependencies": {
+    "dateformat": "^3.0.3",
     "discord.js": "^12.3.1"
   }
 }
