@@ -29,15 +29,19 @@ const validarMensaje = message => {
 
 const responder = (command, message) => {
   if (command === "start") {
-    horaInicial = Date.now();
-    message.reply(`Vamos a comenzar con el curso. Son las: ` + DateFormat(Date.now(), 'HH:MM') + "Hs.");
+    if (!isNaN(horaInicial)) {
+      message.reply("La clase ya comenzó.");
+    } else {
+      horaInicial = Date.now();
+      message.reply(`Vamos a comenzar con el curso. Son las: ` + DateFormat(Date.now(), 'HH:MM') + "Hs.");
+    }
   }
 
   if (command === "time") {
     if (!horaInicial || isNaN(horaInicial)) {
       message.reply("Todavía no empezamos la clase de hoy. \nRecordá que para empezar podes usar el comando **!start**");
     } else {
-      message.reply(`Son las ` + DateFormat(Date.now(), 'HH:MM') + " Hs.!");
+      message.reply(`Son las ` + DateFormat(Date.now(), 'HH:MM') + "Hs.");
       message.reply(`Empezamos hace: ` + timeConversion(calcularTiempoActual(horaInicial)));
     }
   }
