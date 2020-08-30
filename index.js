@@ -65,6 +65,9 @@ const responder = (command, message) => {
         :play_pause: "**-stop**" : Este comando se utiliza para finalizar la clase.\n
         :timer: "**-time**" : Este comando se utiliza para ver cuanto tiempo llevan en clase.\n
         :question: "**-help**" : Para ver la lista de comandos.\n
+        \n
+        También podés encontrar mi código fuente en:
+        https://github.com/leanargu/botardo/archive/master.zip
       `);
   }
 }
