@@ -1,5 +1,5 @@
-const timeConversion = (function () {
-    function convertidor(millisec) {
+module.exports = {
+    convertidor(millisec) {
 
         var seconds = (millisec / 1000).toFixed(1);
 
@@ -10,17 +10,13 @@ const timeConversion = (function () {
         var days = (millisec / (1000 * 60 * 60 * 24)).toFixed(1);
 
         if (seconds < 60) {
-            return seconds + " Sec";
+            return seconds + " Segundos";
         } else if (minutes < 60) {
-            return minutes + " Min";
+            return minutes + " Minutos";
         } else if (hours < 24) {
             return hours + " Hrs";
         } else {
-            return days + " Days"
+            return days + " Dias"
         }
     }
-    return {
-        convertir: convertidor
-    }
-})();
-
+}
