@@ -57,6 +57,7 @@ const responder = (command, message) => {
       message.reply(`Clase finalizada. La clase de hoy duró: ` + convertidor(calcularTiempoActual(horaInicial)));
       horaInicial = Date;
       horaFinal = Date;
+      comienzoPausa = Date;
     }
   }
   if (command === "pause") {
@@ -78,6 +79,7 @@ const responder = (command, message) => {
       message.reply("No estás en pausa.");
     } else {
       message.reply("La pausa finalizó y duró: " + convertidor(calcularTiempoActual(comienzoPausa)));
+      comienzoPausa = Date; 
     }
   }
   if (command === "help") {
@@ -97,38 +99,6 @@ Hola, soy un bot que los va a ayudar a controlar el tiempo de las clases que hag
       `);
   }
 }
-
-// switch (message) {
-//   case "start":
-//     if (comenzoLaClase()) {
-//       message.reply("La clase ya comenzó.");
-//     } else {
-//       horaInicial = Date.now();
-//       message.reply(`Vamos a comenzar con el curso. Son las: ` + DateFormat(Date.now(), 'HH:MM') + "Hs.");
-//     }
-//     break;
-//   case "time":
-//     if (!comenzoLaClase()) {
-//       message.reply("Todavía no empezamos la clase de hoy. \nRecordá que para empezar podes usar el comando **!start**");
-//     } else {
-//       message.reply(`Son las ` + DateFormat(Date.now(), 'HH:MM') + "Hs.");
-//       message.reply(`Empezamos hace: ` + convertidor(calcularTiempoActual(horaInicial)));
-//     }
-//     break;
-//   case "stop":
-//     if (!comenzoLaClase()) {
-//       message.reply("Todavía no empezamos la clase de hoy. \nRecordá que para empezar podes usar el comando **!start**");
-//     } else {
-//       horaFinal = Date.now();
-//       message.reply(`Clase finalizada. La clase de hoy duró: ` + convertidor(calcularTiempoActual(horaInicial)));
-//       horaInicial = Date;
-//       horaFinal = Date;
-//     }
-//     break;
-//   default:
-//     //Declaraciones ejecutadas cuando ninguno de los valores coincide con el valor de la expresión
-//     break;
-// }
 
 const calcularTiempoActual = horaInicial => {
   return Date.now() - horaInicial;
